@@ -67,3 +67,11 @@ id_rsa*
 *.tmp
 tmp/
 temp/
+
+# Claude Code files
+.claude/
+.claude_history
+.claude_session
+claude_history.json
+.anthropic/
+anthropic_history.json

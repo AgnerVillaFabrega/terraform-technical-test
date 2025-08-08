@@ -119,6 +119,18 @@ shared-modules/
     └── outputs.tf
 ```
 
+## Prerequisitos
+
+### SSH Key Pair
+```bash
+ssh-keygen -t rsa -b 2048 -f ./terraform-key -N "" -C "terraform-technical-test"
+```
+Se ha generado un par de claves SSH en el directorio raíz del proyecto:
+- **Clave privada**: `terraform-key`
+- **Clave pública**: `terraform-key.pub`
+
+Esta clave se utiliza automáticamente por Terraform para crear y acceder a las instancias EC2.
+
 ## Pasos de Verificación
 
 ### 1. Verificar Recursos Creados
@@ -136,11 +148,11 @@ terraform output private_ec2_private_ip
 
 ### 3. Probar Conectividad
 ```bash
-# SSH a instancia pública
-ssh -i ~/.ssh/terraform-t-test-key ec2-user@<public-ip>
+# SSH a instancia pública (desde el directorio raíz del proyecto)
+ssh -i ./terraform-key ec2-user@<public-ip>
 
-# Desde instancia pública, SSH a instancia privada
-ssh -i ~/.ssh/terraform-t-test-key ec2-user@<private-ip>
+# Desde instancia pública, SSH a instancia privada (después de copiar la clave privada)
+ssh -i terraform-key ec2-user@<private-ip>
 ```
 
 ### 4. Verificar HTTP Server

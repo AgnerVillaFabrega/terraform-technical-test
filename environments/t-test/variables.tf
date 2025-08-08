@@ -31,7 +31,7 @@ variable "availability_zones" {
 variable "key_name" {
   description = "EC2 Key Pair name for t-test environment"
   type        = string
-  default     = "terraform-t-test-key"
+  default     = "terraform-key"
 }
 
 variable "common_tags" {

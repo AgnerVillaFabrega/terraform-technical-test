@@ -15,7 +15,7 @@ data "aws_ami" "amazon_linux" {
 
 resource "aws_key_pair" "main" {
   key_name   = var.key_name
-  public_key = file("${path.root}/../../terraform-key.pub")
+  public_key = file("${path.root}/../../keys/terraform-key.pub")
 
   tags = var.tags
 }

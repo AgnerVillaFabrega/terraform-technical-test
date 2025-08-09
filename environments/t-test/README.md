@@ -20,7 +20,7 @@ This directory contains the Terraform configuration for the t-test environment.
    - Modify regions/AZs if needed
    - Adjust CIDR blocks if required
 
-3. The SSH key pair has been generated in the project root directory as `terraform-key` (private) and `terraform-key.pub` (public). This key will be automatically imported by Terraform when creating EC2 instances.
+3. The SSH key pair is located in the `keys/` directory: `keys/terraform-key` (private) and `keys/terraform-key.pub` (public). This key will be automatically imported by Terraform when creating EC2 instances.
 
 ## Deployment
 
@@ -52,7 +52,7 @@ After deployment, you can test connectivity between instances:
 
 1. SSH to public instance:
    ```bash
-   ssh -i ../../terraform-key ec2-user@<public-ip>
+   ssh -i ../../keys/terraform-key ec2-user@<public-ip>
    ```
 
 2. From public instance, SSH to private instance (you'll need to copy the private key to the public instance first):

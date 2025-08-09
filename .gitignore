@@ -58,6 +58,7 @@ Thumbs.db
 *.pem
 *.key
 id_rsa*
+keys/terraform-key
 
 # Backup files
 *.backup
